@@ -79,8 +79,7 @@ func TestMap(t *testing.T) {
 	for name, test := range tests {
 		t.Run(name, func(t *testing.T) {
 			result := Map(test.data, test.action)
-			assert.Equal(t, test.result, result)
-			// assert.True(t, reflect.DeepEqual(test.result, result))
+			assert.True(t, reflect.DeepEqual(test.result, result))
 		})
 	}
 }
