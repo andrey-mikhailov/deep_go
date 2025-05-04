@@ -8,38 +8,18 @@ import (
 )
 
 func Map(data []int, action func(int) int) []int {
-	if data == nil {
-		return nil
-	}
-	result := make([]int, len(data))
-	for i, v := range data {
-		result[i] = action(v)
-	}
-	return result
+	// need to implement
+	return nil
 }
 
 func Filter(data []int, action func(int) bool) []int {
-	if data == nil {
-		return nil
-	}
-	result := make([]int, 0, len(data))
-	for _, v := range data {
-		if action(v) {
-			result = append(result, v)
-		}
-	}
-	return result
+	// need to implement
+	return nil
 }
 
 func Reduce(data []int, initial int, action func(int, int) int) int {
-	if data == nil {
-		return 0
-	}
-	result := action(0, initial)
-	for _, v := range data {
-		result = action(result, v)
-	}
-	return result
+	// need to implement
+	return 0
 }
 
 func TestMap(t *testing.T) {
@@ -79,8 +59,7 @@ func TestMap(t *testing.T) {
 	for name, test := range tests {
 		t.Run(name, func(t *testing.T) {
 			result := Map(test.data, test.action)
-			assert.Equal(t, test.result, result)
-			// assert.True(t, reflect.DeepEqual(test.result, result))
+			assert.True(t, reflect.DeepEqual(test.result, result))
 		})
 	}
 }
