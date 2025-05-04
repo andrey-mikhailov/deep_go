@@ -2,7 +2,6 @@ package main
 
 import (
 	"math"
-	"strings"
 	"testing"
 	"unsafe"
 
@@ -142,7 +141,14 @@ func NewGamePerson(options ...Option) GamePerson {
 }
 
 func (p *GamePerson) Name() string {
-	return strings.TrimRight(string(p.name[:len(p.name)]), string([]byte{0}))
+	var length int
+	for i := range len(p.name) {
+		if p.name[i] == 0 {
+			break
+		}
+		length++
+	}
+	return string(p.name[:length])
 }
 
 func (p *GamePerson) X() int {
